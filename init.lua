@@ -33,7 +33,7 @@ vim.o.textwidth = 80
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.autoindent = true
-vim.o.colorcolumn = '+1'
+-- vim.o.colorcolumn = '+1'
 
 -- Save undo history
 vim.opt.undofile = true
