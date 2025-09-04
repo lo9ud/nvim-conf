@@ -29,7 +29,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 
 -- Formatting options
-vim.o.textwidth = 80
+-- vim.o.textwidth = 80
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.autoindent = true
@@ -107,7 +107,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Set default terminal
 -- vim.api.nvim_set_var('terminal_emulator', 'powershell')
 if vim.fn.has 'win64' == 1 or vim.fn.has 'win32' == 1 or vim.fn.has 'win16' == 1 then
-  vim.opt.shell = 'powershell.exe'
+  vim.opt.shell = 'pwsh.exe'
 else
   vim.opt.shell = 'bash'
 end
@@ -402,6 +402,10 @@ require('lazy').setup({
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+        },
+        automatic_installation = true,
+        ensure_installed = {
+          'lua_ls',
         },
       }
     end,
@@ -702,21 +706,7 @@ require('lazy').setup({
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    icons = {},
   },
 })
 
